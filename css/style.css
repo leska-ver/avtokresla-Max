@@ -1,0 +1,828 @@
+@font-face {
+  font-family: 'MuseoSansCyrl';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/MuseoSansCyrl300.woff2') format('woff2'), url('../fonts/MuseoSansCyrl300.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MuseoSansCyrl';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/MuseoSansCyrl500.woff2') format('woff2'), url('../fonts/MuseoSansCyrl500.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MuseoSansCyrl';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/MuseoSansCyrl700.woff2') format('woff2'), url('../fonts/MuseoSansCyrl700.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MuseoSansCyrl';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/MuseoSansCyrl900.woff2') format('woff2'), url('../fonts/MuseoSansCyrl900.woff') format('woff');
+  font-display: swap;
+}
+
+:root {
+  --transition-duration: .4s;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-rgb88: rgb(88, 146, 166);
+  --color-rgb156: rgb(156, 156, 156);
+  --color-rgb94: rgb(94, 94, 94);
+  --color-rgb83: rgb(83, 83, 83);
+  --color-rgb255: rgb(255, 255, 255);
+  --color-fountainBlue: #68b0c9;
+  --color-hover: #5ea5bd;
+  --color-border: rgb(232, 232, 232);
+  --color-blackSqueeze: #ecf3f8;
+  --color-flushMahogany: #d04545;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, 
+*::before, 
+*::after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  -o-box-sizing: inherit;
+  -ms-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html,
+body {
+  /*Для .wrapper Это будет нужно для footer*/
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100%;
+  font-family: 'MuseoSansCyrl', sans-serif;
+  font-weight: 300;
+  font-size: clamp(14px, 5vw, 18px);
+  line-height: 1;
+  color: var(--color-black);
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+img, svg {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #84aaad; /* Цвет посещенных ссылок */
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+  /*перенос слов*/
+  word-wrap: break-word;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  background-color: transparent;  
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.wrapper {    
+  min-height: 100%;
+  overflow: hidden; /* не любить sticky */
+}
+
+/* Для семантики если нет заголовка h1 в вёрстке. Ставим скрытый заголовок. */
+.visually-hidden {
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 50px;
+  /*1045px = 945px + 50px + 50px не менять*/
+  max-width: 1045px;
+}
+
+.h2 {
+  font-size: clamp(25px, 5vw, 36px);
+  color: var(--color-rgb83);
+  line-height: 1.2;
+  letter-spacing: .4px;
+}
+
+.h3 {
+  font-size: clamp(15px, 5vw, 20px);
+  color: var(--color-fountainBlue);
+  line-height: 1.2;  
+}
+
+.desc {
+  font-size: clamp(13px, 5vw, 18px);
+  color: var(--color-rgb83);
+  line-height: 1.2;
+}
+
+/*Цвет для всех форм инпутов*/
+::placeholder{
+  line-height: 1.2;
+  text-align: center;
+  color: var(--color-rgb156);
+}
+
+.btn {
+  padding: 13px 27px;
+  border-radius: 20px;
+  font-size: 14px;  
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center;	
+  color: var(--color-rgb255);
+  background-color: var(--color-fountainBlue);
+  box-shadow: 0px 5px 5px 0px rgba(1, 1, 1, 0.1);
+  outline: none;
+  transition: all var(--transition-duration);
+  cursor: pointer;
+}
+
+.btn:focus {
+  background-color: var(--color-rgb94);
+}
+
+.btn:hover {
+  background-color: var(--color-hover);
+}
+
+.btn:active {
+  opacity: .7;
+}
+
+.btn:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+/* Лого */
+.logo {
+  width: 114px;
+  height: 75px;
+  cursor: pointer;
+}
+
+/* Форма обратной связи */
+.form__input {
+  margin-bottom: 15px;
+  padding: 11px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  width: 100%;
+  font-size: 13px;
+  line-height: 1.2;
+  color: var(--color-black);
+  outline: none;
+  transition: all var(--transition-duration);
+}
+
+.form__input:focus {
+  border: 1px solid var(--color-hover);
+}
+
+.form__input:hover {
+  border: 1px solid #ebf2f7;
+  background-color: #ebf2f7;
+}
+
+.form__input:active {
+  opacity: .7;
+}
+
+/* Подзаголовок */
+.subtitle {
+  text-align: center;
+}
+
+/* Стрелки */
+.arrow {
+  position: absolute;  
+  width: 199px;
+  height: 52px;
+}
+
+.arrow_right {
+  background: url("../img/frameless-img/arrow-right.png") 0 0 no-repeat;
+}
+
+.arrow_left { 
+  background: url("../img/frameless-img/arrow-left.png") 0 0 no-repeat;
+}
+
+.arrow_scale {
+  background: url("../img/arrow-scale.png") center / cover no-repeat;
+}
+
+/* Цена */
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  width: 155px;
+  height: max-content;
+  background-color: #fff;
+}
+
+.price__h3 {
+  font-size: clamp(13px, 5vw, 17px);
+  color: var(--color-fountainBlue);
+}
+
+.price__itWas {
+  margin: 0 0 8px;
+  font-size: clamp(14px, 5vw, 18px);
+  text-decoration: line-through;
+}
+
+.price__line {
+  margin-bottom: 6px;
+  border-bottom: 1px solid var(--color-rgb83);
+  width: 113%;
+  height: 1px;
+}
+
+.price__hasBecome {
+  margin: 0;
+  font-size: clamp(19px, 5vw, 30px);
+  font-weight: 700;
+  color: red;
+}
+
+/* Шапка 1920px*/
+.header {
+  padding: 13px 0;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.header__logo {
+  border: 1px solid transparent;
+  outline: none;
+  transition: all var(--transition-duration);
+}
+
+.header__logo:focus {
+  border: 1px solid var(--color-fountainBlue);
+}
+
+.header__logo:hover {
+  opacity: .7;
+}
+
+.header__logo:active {
+  opacity: .5;
+}
+
+.header__contact {
+  padding: 4px 7px 0 0;
+}
+
+.header__desc {
+  margin: 0;
+  font-size: 24px;
+  font-family: "MuseoSansCyrl";
+  color: var(--color-rgb94);
+  line-height: 1.5;
+}
+
+.header__link {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 14px;
+  color: var(--color-fountainBlue);
+  text-decoration: underline;
+  text-decoration-color: var(--color-fountainBlue);
+  outline: none;
+  transition: all var(--transition-duration);
+  cursor: pointer;
+}
+
+.header__link:focus {
+  color: var(--color-rgb94);
+  text-decoration-color: var(--color-rgb94);
+}
+
+.header__link:hover {
+  color: var(--color-hover);
+  text-decoration-color: var(--color-hover);
+}
+
+.header__link:active {
+  opacity: .7;
+}
+
+/* Hero 1920px*/
+.hero {
+  padding: 34px 0 62px;
+  min-height: 484px;
+  background: url("../img/hero.jpg") center / cover no-repeat;
+  background-color: var(--color-blackSqueeze);
+}
+
+.hero__container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero__right {
+  flex-basis: 600px;
+  text-align: right;
+}
+
+.hero__h2 {
+  margin-bottom: 9px;
+  font-weight: 500;
+  font-size: clamp(25px, 5vw, 41px);
+  letter-spacing: .5px;
+}
+
+.hero__span {
+  display: block;
+  margin: 13px 0 64px;
+  font-size: clamp(22px, 5vw, 27px);
+  color: var(--color-fountainBlue);
+  line-height: 1.2; 
+  letter-spacing: 0.1px;
+}
+
+.hero__block {
+  margin-left: auto;
+  padding: 17px 17px 36px;
+  border-radius: 20px;
+  width: 303px;
+  text-align: center;
+  background-color: var(--color-rgb255);
+  box-shadow: 0px 0px 38px 0px rgba(104, 176, 201, 0.34);
+}
+
+.hero__h3 {
+  margin-bottom: 9px;
+  margin-left: -11px;
+  letter-spacing: .27px;
+}
+
+.hero__desc {
+  margin: 0 0 18px -11px;
+  font-size: 11px;
+  color: var(--color-rgb83);
+  line-height: 1.568; 
+  letter-spacing: .4px;
+}
+
+.hero__form .form__input, .hero__form .form__btn {
+  width: 82%;
+}
+
+/* Бескаркасные кресла frameless - 1920px*/
+.frameless {
+  padding: 42px 0 97px;
+}
+
+.frameless__h2 {
+  margin-bottom: 130px;
+  margin-left: -13px;
+}
+
+.frameless__block {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 83px;
+}
+
+.frameless__block:not(:last-child) {
+  margin-bottom: 106px;
+}
+
+.frameless__text {
+  flex-basis: 400px;
+  width: 400px;
+}
+
+.frameless__block:nth-child(odd) .frameless__text {
+  text-align: left;
+}
+
+.frameless__arrow {
+  top: -51px;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.frameless__arrow_right {
+  left: 51%;  
+}
+
+.frameless__arrow_left {
+  left: 45%;
+}
+
+.frameless__h3 {
+  margin-left: -2px;
+  font-size: clamp(18px, 5vw, 29px);
+  letter-spacing: .8px;
+}
+
+/* Скидка discount - 1920px */
+.discount {  
+  padding: 34px 0 49px;
+  min-height: 484px;
+  background: url("../img/discount.jpg") center / cover no-repeat;
+  background-color: var(--color-blackSqueeze);
+}
+
+.discount__container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  gap: 70px;
+}
+
+.discount__position {
+  position: relative;
+  width: 162px;
+}
+
+.discount__position_none1920 {
+  display: none;
+}
+
+.discount__price.price {
+  position: absolute;
+  bottom: 100px;
+  padding: 40px 14px 37px 19px
+}
+
+.discount__arrow-scale {
+  right: -95px;
+  bottom: 25px;
+  width: 154px;
+  height: 62px;
+}
+
+.discount__right {
+  flex-basis: 382px;
+  text-align: center;
+}
+
+.discount__h3 {
+  margin: 25px 0 9px;
+  font-weight: 700;
+  font-size: clamp(39px, 5vw, 55px);
+  letter-spacing: inherit;
+  text-transform: uppercase;
+}
+
+.discount__desc {
+  margin: -7px 0 47px;
+  font-weight: 900;
+  font-size: clamp(13px, 5vw, 26px);
+  text-transform: uppercase;
+}
+
+.discount__gift {
+  display: block;
+  margin-top: 6px;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: .2px;
+  color: var(--color-fountainBlue);
+  text-transform: initial;
+}
+
+.discount__gift::before {
+  content: "";
+  display: inline-block;
+  margin: 3px 11px 0 -33px;
+  width: 22px;
+  height: 21px;
+  background: url("../img/gift.png") center / cover no-repeat;
+}
+
+.discount__block {
+  margin: 0 auto;
+  padding: 22px 27px 31px;
+  border-radius: 22px;
+  border: 5px solid var(--color-rgb255);
+  width: 275px;
+  text-align: center;
+  background-color: transparent;
+}
+
+.discount__text {
+  display: -ms-grid;
+  display: grid;
+  -webkit-grid-template-columns: 68px 58px 58px;
+  -o-grid-template-columns: 68px 58px 58px;
+  -moz-grid-template-columns: 68px 58px 58px;
+  -ms-grid-template-columns: 68px 58px 58px;
+  grid-template-columns: 68px 58px 58px;
+  gap: 11px;
+  margin-bottom: 25px;
+  text-align: start;
+}
+
+.discount__description {
+  font-size: 14px;
+  color: red;
+}
+
+.discount__stock-png {
+  margin-top: 10px;
+  width: 48px;
+  height: 43px;
+  background: url("../img/stock.png") center / cover no-repeat;
+}
+
+.discount__link {
+  display: block;
+  padding: 15px 27px 16px;
+  width: 96%;
+  font-size: 16px;  
+}
+
+/* Выполнение accomplishment - 1920px */
+.accomplishment {
+  padding: 62px 0;
+}
+
+.accomplishment__list {
+  display: grid;
+  grid-template-columns: repeat(4, 24%);
+  gap: 13px;
+  padding: 0;
+}
+
+.accomplishment__item {
+  height: max-content;
+}
+
+.accomplishment__png {
+  margin-bottom: 16px;
+  padding: 9px 5px;
+  height: 100%;
+  background: url("../img/accomplishment-png/1.png") center / cover no-repeat;
+  background-size: 79px 96px;
+  text-align: center; 
+}
+
+.accomplishment__h3 {
+  margin: 10px 0 0;
+  font-size: clamp(37px, 5vw, 48px);
+  line-height: 1.5;
+}
+
+.accomplishment__desc {
+  margin-top: 0;
+  text-align: center;
+}
+
+@media (max-width: 1222px) {
+  /* Hero 999px*/
+  .hero {
+    background: url("../img/hero-mobile.jpg") left / cover no-repeat;
+  }  
+}
+
+@media (max-width: 999px) {
+  /* Hero 999px*/
+  .hero {
+    background-position: 9% 0;
+  }
+
+  .hero__h2 {
+    text-shadow: 3px 0 #fff;
+  }
+
+  .hero__span {
+    text-shadow: 1.5px 0 #fff;
+  }
+
+  /* Бескаркасные кресла frameless - 999px*/
+  .frameless__h2 {
+    margin-bottom: 100px;
+  }
+
+  .frameless__block {
+    padding: 0;
+  }
+
+  .frameless__h3 {
+    margin-left: 0;
+  }  
+
+  /* Скидка discount - 999px */
+  .discount {
+    background: url("../img/discount-mobile.jpg") left / cover no-repeat;
+  }
+}  
+
+@media (max-width: 767px) {
+  .subtitle {
+    text-align: start;
+  }
+
+  .hero {
+    background-position: 15% 0;
+  }
+
+  /* Бескаркасные кресла frameless - 767px*/
+  .frameless__h2 {
+    margin-bottom: 70px;
+    margin-left: 0;
+  }
+
+  .frameless__block {
+    display: block;
+  }
+
+  .frameless__block:not(:last-child) {
+    margin-bottom: 56px;
+  }
+
+  .frameless__text {
+    width: 100%;
+  }
+
+  .frameless__desc {
+    margin-bottom: 5px;
+  }
+
+  .frameless__arrow {
+    position: relative;
+    top: 100px;
+  }
+
+  .frameless__arrow_right {
+    transform: rotate(111deg);
+  }  
+
+  .frameless__arrow_left {
+    top: -70px;
+    left: 51%;
+    transform: rotate(65deg);
+  }
+
+  .frameless__foto {
+    width: 70%;
+  }
+
+  /* Скидка discount - 767px */
+  .discount {
+    background-position: 11%;
+  }
+
+  .discount__right {
+    flex-basis: 100%;
+    text-shadow: 3px 0 #fff;
+  }
+
+  .discount__gift {
+    text-shadow: 2px 0 #fff;
+  }
+
+  .discount__position_none767 {
+    display: none;
+  }
+
+  .discount__position_none1920 {
+    display: block;
+    margin-bottom: 60px;
+    width: 100%;
+  }
+
+  .discount__price.price {
+    position: relative;
+    padding: 30px 16px;
+    width: max-content;
+    bottom: inherit;
+    margin: 0 auto;
+  }
+
+  .discount__price .price__line {
+    width: 100%;
+  }
+
+  .discount__arrow-scale {
+    display: none;
+  }
+
+  .discount__description {
+    text-shadow: 1px 0 #fff;
+  }
+
+
+}
+
+@media (max-width: 444px) {
+  .container {
+    padding: 0 23px;
+  }
+
+  .logo {
+    width: 77px;
+    height: 37px;
+  }
+
+  /* Шапка 444px*/
+  .header__link {
+    justify-content: left;
+  }  
+
+  /* Hero 444px*/
+  .hero, .discount {
+    background: var(--color-blackSqueeze);
+  }
+
+  .hero__right {
+    width: 100%;
+    text-align: start;
+  }  
+
+  .hero__block {
+    margin: 0 auto;
+    width: 100%;
+  }  
+
+  .hero__form .form__input, .hero__form .form__btn {
+    width: 100%;
+  }  
+
+  /* Бескаркасные кресла frameless - 444px*/
+  .frameless__arrow {
+    top: 75px;
+  }
+
+  .frameless__arrow_left {
+    top: -70px;
+  }  
+
+  /* Скидка discount - 444px */
+  .discount__price.price {
+    padding: 25px 16px;
+  }
+
+  .discount__right {
+    text-shadow: none;
+  }
+}

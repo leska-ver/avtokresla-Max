@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--закрасить адресную строку и строку уведомлений в любой цвет.-->
+    <meta name="theme-color" content="#1f1f1f">
+    <!--Для поиска в сети-->
+    <meta name="description" content="Добро пожаловать на сайт.">
+    <meta property="og:title" content="Интернет магазин КРЫЛАТКО">
+    <meta property="og:type" content="website">
+    <!-- здесь ссылка на сайт-->
+    <meta property="og:url" content="ссылка сайта">
+    <!-- <meta property="og:image" content="картинка для поисковиков ссылка"> -->
+    <meta property="og:image" content="ссылка на картинку OgImage.jpg">
+    <meta name="keywords" content="заказ, заказать, купить, автокресло, дети, безопасностьг">
+    <!-- // Для поиска в сети-->
+    <title>КРЫЛАТКО</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 class="visually-hidden">Я для семантики</h1>
+      <header class="header">
+        <div class="header__container container">
+          <a class="header__logo" href="#">            
+            <img class="logo" src="img/logo.png" alt="КРЫЛАТКО" width="114">
+          </a>
+          <div class="header__contact">
+            <p class="header__desc desc">+7 (950) 733-31-70</p>
+            <a class="header__link" href="tel:89507333170">Заказать обратный звонок</a>
+          </div>
+        </div>
+      </header>
+      <main>
+        <section class="hero">
+          <div class="hero__container container">
+            <div class="hero__right">
+              <h2 class="hero__h2 h2">Сертифицированные детские бескаркасные автокресла
+              <span class="hero__span">с бесплатной доставкой по Челябинску</span></h2>
+              <div class="hero__block">
+                <h3 class="hero__h3 h3">Нет времени читать? </h3>
+                <p class="hero__desc desc">Оставляйте номер, мы вам перезвоним!</p>
+                <form class="hero__form form" action="mail.php" enctype="multipart/form-data" method="POST" aria-label="Здесь Вы можете заказать товар">
+                  <input type="hidden" name="admin_email[]" value="darki@mail.ru">              
+                  <input type="hidden" name="admin_email[]" value="darki@yandex.ru">
+                  <input type="hidden" name="form_subject" value="Оставьте заявку forms">
+                  <div class="form__block">
+                    <!--data здесь он обрабатывает плагин валидатор кода-->
+                    <label class="form__label" for="telZakaz">
+                      <input class="form__input" type="tel" name="tel" placeholder="Ваш телефон"
+                        data-validate-field="tel" data-validate-rules="phone" id="telZakaz"
+                        aria-label="Введите ваш телефон">
+                    </label>
+                  </div>
+                  <button class="form__btn btn" aria-label="Нажмите чтобы отправить">ПЕРЕЗВОНИТЕ МНЕ</button>
+                </form>
+              </div>
+            </div>
+          </div> 
+        </section>
+        <section class="frameless">
+          <div class="frameless__container container">
+            <h2 class="frameless__h2 h2 subtitle">Почему именно бескаркасные кресла?</h2>
+            <div class="frameless__block">
+              <div class="frameless__text">
+                <h3 class="frameless__h3 h3">Оставляет ваш салон  свободным</h3>
+                <p class="frameless__desc desc">
+                  Бескаркаяное автокресло «Смайл» можно не снимать во время перевозки взрослого или груза. Кресло весить всего 700 грамм и установить его можно в любой автомобиль.
+                </p>
+              </div>
+              <div class="frameless__arrow frameless__arrow_right arrow arrow_right"></div>
+              <div class="frameless__foto"><img src="img/frameless-img/1.png" alt="Фото кресла-1"></div>
+            </div>
+            <div class="frameless__block">
+              <div class="frameless__foto"><img src="img/frameless-img/2.png" alt="Фото кресла-2"></div>              
+              <div class="frameless__arrow frameless__arrow_left arrow arrow_left"></div>
+              <div class="frameless__text">
+                <h3 class="frameless__h3 h3">Подходит к большинству групп детей</h3>
+                <p class="frameless__desc desc">
+                  Автокресло рассчитано на возраст от 1 года до 12 лет (от 9 кг до 36кг) Имеет пятиточную фиксацию ребёнка, как в гоночном автомобиле.
+                </p>
+              </div>
+            </div>
+            <div class="frameless__block">
+              <div class="frameless__text">
+                <h3 class="frameless__h3 h3">Отечественный  производитель</h3>
+                <p class="frameless__desc desc">
+                  Автокресла производят в г. Георгиевске (Ставропольский край), соответствует нормам ГИБДД и разрешены к использованию по всей территории РФ, о чем говорит сертификат соответствия.
+                </p>
+              </div>
+              <div class="frameless__arrow frameless__arrow_right arrow arrow_right"></div>
+              <div class="frameless__foto"><img src="img/frameless-img/3.png" alt="Фото кресла-3"></div>
+            </div>
+          </div>
+        </section>  
+        <section class="discount">
+          <div class="discount__container container">
+            <h2 class="discount__visually-hidden visually-hidden">Я для семантики</h2>
+            <div class="discount__position discount__position_none767">
+              <div class="discount__price price">
+                <p class="price__itWas desc">2 545 р.</p>
+                <div class="price__line"></div>
+                <p class="price__hasBecome desc">1 850 р.</p>
+              </div>
+              <div class="discount__arrow-scale arrow arrow_scale"></div>
+            </div>
+            <div class="discount__right">
+              <h2 class="discount__h3 h3">Скидка 28%</h2> 
+              <p class="discount__desc desc">
+                и бесплатная доставка <span class="discount__gift">в подарок!</span> 
+              </p>
+              <div class="discount__position discount__position_none1920">
+                <div class="discount__price price">
+                  <p class="price__itWas desc">2 545 р.</p>
+                  <div class="price__line"></div>
+                  <p class="price__hasBecome desc">1 850 р.</p>
+                </div>
+                <div class="discount__arrow-scale arrow arrow_scale"></div>
+              </div>
+              <div class="discount__block">
+                <div class="discount__text">
+                  <p class="discount__description desc">Акция только до:</p>
+                  <span class="discount__stock-png"></span> 
+                  <p class="discount__description desc">декабря!</p>
+                </div>                               
+                <a class="discount__link btn" href="#" aria-label="Нажмите чтобы заказать">ЗАКАЗАТЬ</a>
+              </div>
+            </div>
+          </div>
+        </section>  
+        <section class="accomplishment">
+          <div class="accomplishment__container container">
+            <h2 class="accomplishment__visually-hidden visually-hidden">Я для семантики</h2>
+            <ul class="accomplishment__list">
+              <li class="accomplishment__item">
+                <div class="accomplishment__png">
+                  <h3 class="accomplishment__h3 h3">8</h3>
+                </div>
+                <p class="accomplishment__desc desc">лет на рынке</p>
+              </li>
+              <li class="accomplishment__item">
+                <div class="accomplishment__png">
+                  <h3 class="accomplishment__h3 h3">21 645</h3>
+                </div>  
+                <p class="accomplishment__desc desc">кресел продано</p>
+              </li>
+              <li class="accomplishment__item">
+                <div class="accomplishment__png">
+                  <h3 class="accomplishment__h3 h3">1 254</h3>
+                </div>  
+                <p class="accomplishment__desc desc">что то сделано</p>
+              </li>
+              <li class="accomplishment__item">
+                <div class="accomplishment__png">
+                  <h3 class="accomplishment__h3 h3">45</h3>
+                </div>  
+                <p class="accomplishment__desc desc">заказов в день</p>
+              </li>
+            </ul>
+          </div>
+        </section>  
+      </main>    
+    </div><!-- wrapper -->
+  </body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Компоненты</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="component__container container">
+    <img class="logo" src="img/logo.png" alt="КРЫЛАТКО" width="114">
+  </div>
+  <h2 class="subtitle h2">Подзаголовок-h2</h2>
+  <p class="desc">Текст</p>
+  <h3 class="h3">Подзаголовок-h3</h3>
+  <form class="form" action="mail.php" enctype="multipart/form-data"
+  method="POST" aria-label="Здесь Вы можете заказать товар">
+    <input type="hidden" name="admin_email[]" value="darki@mail.ru">              
+    <input type="hidden" name="admin_email[]" value="darki@yandex.ru">
+    <input type="hidden" name="form_subject" value="Оставьте заявку forms">
+    <div class="form__block">
+      <!--data здесь он обрабатывает плагин валидатор кода-->
+      <label class="form__label" for="telZakaz">
+        <input class="form__input" type="tel" name="tel" placeholder="Ваш телефон"
+          data-validate-field="tel" data-validate-rules="phone" id="telZakaz"
+          aria-label="Введите ваш телефон">
+      </label>
+    </div>
+    <button class="form__btn btn" aria-label="Нажмите чтобы отправить">Кнопка</button>
+    <div class="arrow arrow_right"></div>
+    <div class="arrow arrow_left"></div>
+    <div class="arrow arrow_scale"></div>
+    <div class="price">
+      <h2 class="price__h3">Скидка 28%</h2>
+      <p class="price__itWas desc">2 545 р.</p>
+      <div class="price__line"></div>
+      <p class="price__hasBecome desc">1 850 р.</p>
+    </div>
+  </form>
+</body>
+</html>
