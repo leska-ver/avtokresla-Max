@@ -18,9 +18,38 @@
     <meta property="og:image" content="ссылка на картинку OgImage.jpg">
     <meta name="keywords" content="заказ, заказать, купить, автокресло, дети, безопасностьг">
     <!-- // Для поиска в сети-->
+    <!-- Яндекс карта -->
+    <script defer="defer" src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>
     <title>КРЫЛАТКО</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <script>
+      // для Базы данных timeweb.ru
+      const formBaza = document.querySelector('.form');
+      if (formBaza) { // Обёртка if. Спасение Gulp-а от null в браузере
+        $(function () {
+          $('.form-button').on('click', function () {
+            let data = {
+              // 'name': $('[name="name"]').val(),
+              'tel': $('[name="tel"]').val()//,
+              // 'email': $('[name="email"]').val(),
+              // 'message': $('[name="message"]').val()
+            };
+            $.post('mail.php', data, function (response) {
+              if (response == 1) {
+                // $('[name="name"]').val('');
+                $('[name="tel"]').val('');
+                // $('[name="email"]').val('');
+                // $('[name="message"]').val('');
+              }
+            })
+
+            return false;
+          });
+        });
+      };
+    </script>
   </head>
   <body>
     <div class="wrapper">
@@ -45,20 +74,28 @@
               <div class="hero__block">
                 <h3 class="hero__h3 h3">Нет времени читать? </h3>
                 <p class="hero__desc desc">Оставляйте номер, мы вам перезвоним!</p>
-                <form class="hero__form form" action="mail.php" enctype="multipart/form-data" method="POST" aria-label="Здесь Вы можете заказать товар">
-                  <input type="hidden" name="admin_email[]" value="darki@mail.ru">              
-                  <input type="hidden" name="admin_email[]" value="darki@yandex.ru">
-                  <input type="hidden" name="form_subject" value="Оставьте заявку forms">
+                <form class="hero__form hero__form_js form" action="mail.php" enctype="multipart/form-data" method="POST" aria-label="Здесь Вы можете заказать товар">
+                  <input type="hidden" name="admin_email[]" value="kussa90-03@mail.ru"><!--darki@mail.ru-->              
+                  <input type="hidden" name="admin_email[]" value="lyaisan.333@yandex.ru"><!--darki@yandex.ru-->
+                  <input type="hidden" name="form_subject" value="Сертифицированные детские бескаркасные автокресла hero__form">
                   <div class="form__block">
                     <!--data здесь он обрабатывает плагин валидатор кода-->
-                    <label class="form__label" for="telZakaz">
+                    <label class="form__label" for="tel">
                       <input class="form__input" type="tel" name="tel" placeholder="Ваш телефон"
-                        data-validate-field="tel" data-validate-rules="phone" id="telZakaz"
+                        data-validate-field="tel" data-validate-rules="phone" id="tel"
                         aria-label="Введите ваш телефон">
                     </label>
                   </div>
                   <button class="form__btn btn" aria-label="Нажмите чтобы отправить">ПЕРЕЗВОНИТЕ МНЕ</button>
                 </form>
+                <div class="hero__modal modal hero__modal_js">
+                  <div class="hero__modal-sps modal-sps hero__modal-sps_js">                    
+                    <button class="hero__modal-close modal-close hero__modal-close_js" title="Закрыть">
+                      &#10006;
+                    </button>
+                    <p class="hero__modal-desc modal-desc desc">Спасибо, мы с вами свяжемся!</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div> 
@@ -128,7 +165,7 @@
                   <span class="discount__stock-png"></span> 
                   <p class="discount__description desc">декабря!</p>
                 </div>                               
-                <a class="discount__link btn" href="#" aria-label="Нажмите чтобы заказать">ЗАКАЗАТЬ</a>
+                <a class="discount__link btn" href="#contact" aria-label="Нажмите чтобы заказать">ЗАКАЗАТЬ</a>
               </div>
             </div>
           </div>
@@ -164,8 +201,191 @@
             </ul>
           </div>
         </section>  
-      </main>    
+        <section class="certificate">
+          <div class="certificate__container container">
+            <h2 class="certificate__h2 h2 subtitle">Сертификация товара</h2>
+            <div class="certificate__block">
+              <div class="certificate__img">
+                <img src="img/certificate.jpg" alt="Сертификат">
+              </div>
+              <div class="certificate__info">
+                <div class="certificate__text">
+                  <div class="certificate__sign-img"></div>
+                  <h3 class="certificate__h3 h3">
+                    Соответствуют всем нормам и требованиям правил ГИБДД
+                  </h3>
+                </div>
+                <p class="certificate__desc desc">
+                  Наши кресла производятся в г.Георгиевске (Ставропольский край), сертифицированны и разрешены к использованию по всей России.
+                </p>
+                <p class="certificate__desc desc">
+                  Кресло весит всего 700 грамм, его можно носить с собой и установить в любое авто.
+                </p>
+                <p class="certificate__desc desc">
+                  Стирать кресло можно при температуре 30 градусов.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>    
+        <section class="information">
+          <div class="information__container container">
+            <h2 class="information__visually-hidden visually-hidden">Я для семантики</h2>
+            <div class="information__block">
+              <div class="information__img img1"></div>
+              <div class="information__text text1">
+                <h3 class="information__h3 h3">Крепкие ремни</h3>
+                <p class="information__desc desc">
+                  Тесьма ременная имеет плотную структуру и выдерживает большие нагрузки.
+                </p>
+              </div>
+              <div class="information__text text2">
+                <h3 class="information__h3 h3">Безопасные материалы</h3>
+                <p class="information__desc desc">
+                  При пошиве используется ткань "Оксфорд", сетка Air-mesh 3-х слойная, поролом, спанбонд, халлофайбер. Все материалы экологически чистые.
+                </p>
+              </div>
+              <div class="information__text text3">
+                <h3 class="information__h3 h3">Удобная установка</h3>
+                <p class="information__desc desc">
+                  Достаточно продеть штатный ремень безопасности автомобиля, через специальный карман устройства "ВИННИ" и застегнуть в замокю
+                </p>
+              </div>
+              <div class="information__text text4">
+                <h3 class="information__h3 h3">Прочные крепления</h3>
+                <p class="information__desc desc">
+                  Устройство  ВИННИ" имеет пятиточечную систему крепления. Пряжки производят из высокопрочных пластиков, имеющих хорошие показатели упругости.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section> 
+        <section class="contact" id="contact">
+          <div class="contact__container container">
+            <h2 class="contact__visually-hidden visually-hidden">Я для семантики</h2>
+            <div class="contact__price price">
+              <h3 class="price__h3">Скидка 28%</h3>
+              <p class="price__itWas desc">2 545 р.</p>
+              <div class="price__line"></div>
+              <p class="price__hasBecome desc">1 850 р.</p>
+            </div>
+            <div class="contact__right">
+              <h3 class="contact__h3 h3">Оставьте заявку сейчас и&nbsp;получите <span>бесплатную доставку!</span>
+              </h3>
+              <form class="contact__form contact__form_js form" action="mail.php" enctype="multipart/form-data" method="POST" aria-label="Здесь Вы можете заказать товар">
+                <input type="hidden" name="admin_email[]" value="kussa90-03@mail.ru"><!--darki@mail.ru-->              
+                  <input type="hidden" name="admin_email[]" value="lyaisan.333@yandex.ru"><!--darki@yandex.ru-->
+                  <input type="hidden" name="form_subject" value="Оставьте заявку сейчас и получите
+                  бесплатную доставку! contact__form">
+                <div class="form__block">
+                  <!--data здесь он обрабатывает плагин валидатор кода-->
+                  <label class="form__label" for="telZakaz">
+                    <input class="form__input" type="tel" name="tel" placeholder="Ваш телефон"
+                      data-validate-field="tel" data-validate-rules="phone" id="telZakaz"
+                      aria-label="Введите ваш телефон">
+                  </label>
+                </div>
+                <button class="form__btn btn" aria-label="Нажмите чтобы отправить">ПЕРЕЗВОНИТЕ МНЕ</button>
+              </form>
+              <div class="contact__modal modal contact__modal_js">
+                <div class="contact__modal-sps modal-sps contact__modal-sps_js">                    
+                  <button class="contact__modal-close modal-close contact__modal-close_js" title="Закрыть">
+                    &#10006;
+                  </button>
+                  <p class="contact__desc modal-desc desc">Спасибо, мы с вами свяжемся!</p>
+                </div>
+              </div>
+            </div>
+            <div class="contact__arrow"></div>
+          </div>
+        </section>  
+        <section class="difference">
+          <div class="difference__container container">
+            <h2 class="difference__visually-hidden visually-hidden">Я для семантики</h2>
+            <div class="difference__block">
+              <div class="difference__left">
+                <h3 class="difference__h3">Обычное кресло</h3>
+                <div class="difference__padding">
+                  <p class="difference__desc desc">
+                    боковые стенки преград для движений ребенка, особенно в зимний период, когда много одежды
+                  </p>
+                  <p class="difference__desc desc">
+                    необходимо менять автокресло по мере увеличения веса ребенка
+                  </p>
+                  <p class="difference__desc desc">
+                    имеет 5-ти точечную фиксацию ребенка
+                  </p>
+                  <p class="difference__desc desc">
+                    нужно убирать в багажник, при перевозки взрослых или каких либо грузов
+                  </p>
+                </div>
+              </div>
+              <div class="difference__img"><img src="img/difference-png/1.png" alt="Кресло"></div>
+              <div class="difference__right">
+                <h3 class="difference__h3">Бескаркасное кресло</h3>
+                <div class="difference__padding">
+                  <p class="difference__desc desc">
+                    дает полную безопасную свободу ребёнка ОСТАВЛЯЕТ СПИНКУ СИДЕНИЕ ЧИСТЫМ
+                  </p>
+                  <p class="difference__desc desc">
+                    подходит 1, 2, 3 группе детей (от 9 кг до 36 кг)(от 1 года до&nbsp;12 лет)
+                  </p>
+                  <p class="difference__desc desc">
+                    имеет 5-ти точечную фиксацию ребенка
+                  </p>
+                  <p class="difference__desc desc">
+                    не мешает при перевозке пассажиров или грузов. Весит 700 грамм
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>   
+        <section class="address">
+          <div class="address__container container">
+            <h2 class="address__visually-hidden visually-hidden">Я для семантики</h2>
+            <div class="address__block">
+              <div class="address__map" id="map"></div>
+              <div class="address__info">
+                <div class="address__png"></div>
+                <p class="address__desc desc">Забрать кресло можно по адресу:</p>
+                <address class="address__address">
+                  Челябинск,  <br>ул. Академика Королева, 38
+                 </address>
+                 <p class="address__desc desc">или используйте</p>
+                 <a href="#contact" class="address__link btn">Бесплатная доставка</a>
+              </div>
+            </div>
+          </div>
+        </section>          
+      </main>  
+      <footer class="footer">
+        <div class="footer__container container">
+          <a class="footer__logo" href="#">            
+            <img class="logo" src="img/logo.png" alt="КРЫЛАТКО" width="114">
+          </a>
+          <a class="footer__conditionality" href="Политика-конфиденциальности.docx">Политика конфиденциальности</a>
+          <span class="footer__inn">Инн 999999999 <br>ОГРН 453453453453</span>
+        </div>
+      </footer>    
     </div><!-- wrapper -->
+
+
+    <!--Аккордеон тоже самое и для телефона-->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <!--минифицированный библиотека. для телефона-->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <!--Маска формы input-ов-->
+    <script src="js/inputmask.min.js"></script>
+    <!--Валидатор input-ов-->
+    <script src="js/just-validate.js"></script>
+
+
+
+    <script src="js/avtokresla-Max.js"></script>
+    <script src="js/map.js"></script>
   </body>
 
 </html>
